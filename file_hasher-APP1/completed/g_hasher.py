@@ -2,7 +2,7 @@ __author__ = 'girish'
 
 import argparse
 import os
-import _pfish_tools
+import g_hasher_tools
 import logging
 import time
 import sys
@@ -12,11 +12,11 @@ logging.info("Welcome to ghasher ver 1 New scan started")
 logging.info("Welcome to ghasher ver 1.0")
 logging.info("System: "+sys.platform)
 logging.info("version: "+sys.version)
-_pfish_tools.parse_command_line()
+g_hasher_tools.parse_command_line()
 start_time = time.time()
 
 
-fileprocessed = _pfish_tools.Walk_path()
+fileprocessed = g_hasher_tools.Walk_path()
 
 #Record the end time and calculate the duration
 endTime = time.time()
