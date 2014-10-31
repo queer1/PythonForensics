@@ -77,7 +77,7 @@ class CSVWriter:
             log.error("CSV store failed for "+filename)
     def writeCSVrow(self,simplename,theFile,fileSize,modifiedTIme,accessTime,createdTime,hashValue,ownerID,groupID,mode):
         """
-        method takes in the required 
+        method takes in the required
         :param simplename:
         :param theFile:
         :param fileSize:

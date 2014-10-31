@@ -1,0 +1,30 @@
+theFileStats=os.stat(theFile)
+                    (mode,ino,dev,nlink,uid,gid,size,atime,mtime,ctime)=os.stat(theFile)
+                    log.info("Processing File: "+theFile)
+                    fileSize = str(size)
+                    modifiedTIme= time.ctime(mtime)
+                    accessTime = time.ctime(atime)
+                    createdTime = time.ctime(ctime)
+                    
+
+                    if gl_args.md5:
+                        hashout = hashlib.md5()
+                        hashout.update(rd)
+                        hexmd5 = hashout.hexdigest()
+                        hashValue = hexmd5.upper()
+                    elif gl_args.sha256:
+                        hashout = hashlib.sha256()
+                        hashout.update(rd)
+                        hexsha256 = hashout.hexdigest()
+                        hashValue = hexsha256.upper()
+                    elif gl_args.sha512:
+                        hashout = hashlib.sha512()
+                        hashout.update(rd)
+                        hexsha512 = hashout.hexdigest()
+                        hashValue = hexsha512.upper()
+                    else:
+                        log.error("hash not Selected")
+
+                    f.close()
+                    o_result.writeCSVrow(simplename,theFile,fileSize,modifiedTIme,accessTime,createdTime,hashValue)
+                    return True
